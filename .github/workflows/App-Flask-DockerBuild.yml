@@ -9,14 +9,17 @@ on:
         description: 'The Resource Group where your resources are deployed'
         required: true
         type: string
+        default: ESLZ-SPOKE
       AKSNAME:
         description: 'The Name of the AKS resource'
         required: true
         type: string
+        default: eslzakscluster
       ACRNAME:
         description: 'The Name of the ACR resource'
         required: true
         type: string
+        default: crab753b4535734cfcbdc484
       APPNAME:
         description: 'The Name of the Application to deploy'
         default: "flask"
@@ -24,13 +27,14 @@ on:
         type: string
       NAMESPACE:
         description: 'The Kubernetes Namespace to deploy the Application to'
-        default: "default"
+        default: "flask"
         required: false
         type: string
       ENVIRONMENT:
         description: 'A GitHub Environment to pull action secrets from'
         required: true
         type: environment
+        default: prod
     secrets:
       AZURE_CLIENT_ID:
         required: true
