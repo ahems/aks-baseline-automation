@@ -12,10 +12,10 @@
             "value": "rg-gitopsaks"
         },
         "location": {
-            "value": "eastus"
+            "value": "westus2"
         },
         "geoRedundancyLocation": {
-            "value": "westus"
+            "value": "eastus"
         },
         "subnetIpAddressSpace": {
             "value": [
