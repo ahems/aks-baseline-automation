@@ -341,19 +341,6 @@ resource registry_lock 'Microsoft.Authorization/locks@2020-05-01' = if (!empty(l
   scope: registry
 }
 
-resource registry_diagnosticSettingName 'Microsoft.Insights/diagnosticsettings@2021-05-01-preview' = if ((!empty(diagnosticStorageAccountId)) || (!empty(diagnosticWorkspaceId)) || (!empty(diagnosticEventHubAuthorizationRuleId)) || (!empty(diagnosticEventHubName))) {
-  name: diagnosticSettingsName
-  properties: {
-    storageAccountId: !empty(diagnosticStorageAccountId) ? diagnosticStorageAccountId : null
-    workspaceId: !empty(diagnosticWorkspaceId) ? diagnosticWorkspaceId : null
-    eventHubAuthorizationRuleId: !empty(diagnosticEventHubAuthorizationRuleId) ? diagnosticEventHubAuthorizationRuleId : null
-    eventHubName: !empty(diagnosticEventHubName) ? diagnosticEventHubName : null
-    metrics: diagnosticsMetrics
-    logs: diagnosticsLogs
-  }
-  scope: registry
-}
-
 module registry_roleAssignments '.bicep/nested_roleAssignments.bicep' = [for (roleAssignment, index) in roleAssignments: {
   name: '${uniqueString(deployment().name, location)}-ContainerRegistry-Rbac-${index}'
   params: {
