@@ -9,13 +9,13 @@
             "value": "rg-enterprise-networking-spokes"
         },
         "aksResourceGroupName": {
-            "value": "rg-bu0001a0008"
+            "value": "rg-gitopsaks"
         },
         "location": {
-            "value": "westus2"
+            "value": "eastus"
         },
         "geoRedundancyLocation": {
-            "value": "northeurope"
+            "value": "westus"
         },
         "subnetIpAddressSpace": {
             "value": [
@@ -44,10 +44,10 @@
             "value": "Enabled"
         },
         "kubernetesVersion": {
-            "value": "1.23.8"
+            "value": "1.27"
         },
         "gitOpsBootstrappingRepoHttpsUrl": {
-            "value": "https://github.com/Azure/aks-baseline-automation"
+            "value": "https://github.com/ahems/aks-baseline-automation"
         },
         "gitOpsBootstrappingRepoBranch": {
             "value": "main"
