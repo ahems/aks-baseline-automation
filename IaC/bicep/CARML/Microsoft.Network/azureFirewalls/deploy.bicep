@@ -268,19 +268,6 @@ resource azureFirewall_lock 'Microsoft.Authorization/locks@2020-05-01' = if (!em
   scope: azureFirewall
 }
 
-resource azureFirewall_diagnosticSettings 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (!empty(diagnosticStorageAccountId) || !empty(diagnosticWorkspaceId) || !empty(diagnosticEventHubAuthorizationRuleId) || !empty(diagnosticEventHubName)) {
-  name: diagnosticSettingsName
-  properties: {
-    storageAccountId: !empty(diagnosticStorageAccountId) ? diagnosticStorageAccountId : null
-    workspaceId: !empty(diagnosticWorkspaceId) ? diagnosticWorkspaceId : null
-    eventHubAuthorizationRuleId: !empty(diagnosticEventHubAuthorizationRuleId) ? diagnosticEventHubAuthorizationRuleId : null
-    eventHubName: !empty(diagnosticEventHubName) ? diagnosticEventHubName : null
-    metrics: diagnosticsMetrics
-    logs: diagnosticsLogs
-  }
-  scope: azureFirewall
-}
-
 module azureFirewall_roleAssignments '.bicep/nested_roleAssignments.bicep' = [for (roleAssignment, index) in roleAssignments: {
   name: '${uniqueString(deployment().name, location)}-AzFW-Rbac-${index}'
   params: {
