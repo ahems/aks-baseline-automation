@@ -25,11 +25,12 @@ on:
         description: 'K8S Admin Azure AAD Group ObjectID'
         required: true
         type: string
+        default: 6ef185f2-2b8c-435c-9949-7b3598ee6f80
       a0008NamespaceReaderAadGroupObjectId:
         description: 'K8S Reader Azure AAD Group ObjectID'
         required: true
         type: string
-
+        default: 2dc1acae-dcd9-41ce-b6f4-1032e0ad0c02
 env:
   event_sha: +refs/pull/${{ github.event.issue.number }}/merge
 
